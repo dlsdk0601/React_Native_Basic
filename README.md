@@ -115,3 +115,46 @@ flex => 기본적으로 Web과는 반대로 colums가 디폴트값이다. 세로
 3. dev-tools
 
 <br />
+
+퍼블리싱 할 경우, 웹처럼 개발자도구가 있으면 편하고 빠르게 퍼블리싱이 가능하다. 이를 지원해주는 라이브러리를 다운 받으면 이용 가능하다.
+
+<br />
+
+설치
+> npm i -g react-devtools@"<4.13.0"
+
+<br />
+
+설치가 완료된 후, cmd창에 npm run devtool를 치면 개발자 도구 창이 열릴 것이다. 처음에 아무 버전이나 다운 받았을때, 적합한 버전을 알려준다. 그에 맞게 지우고 다시 다운 받으면 된다. 
+package.json 파일을 보면 해당 라이브러리가 설치된것을 확인 할 수 있고, script 부분에 devtools가 추가된걸 볼 수 있다. 
+
+<br />
+
+4. ScrollView
+
+<br />
+
+App에서는 웹과는 달리 스크롤을 당연시 하지않는다. 스크롤이 들어가야할 컨텐츠 영역은 ScrollView 태그로 감싸줘야한다. 해당 태그는 다양한 props를 받는데, 아주 유용한 몇가지가 있다.
+
+<br />
+
+horizontal  => 수평방향으로 스크롤이 되도록 한다.
+pagingEnabled => 페이징 기능을 넣어준다. 한번에 동작에 한 컨텐츠씩 이동된다.
+showsHorizontalScrollIndicator={false} => 스크롤바를 안보이게 해준다. 
+contentContainerStyle={styles.weather} => 가끔 스크롤하는 영역이 충분한 height를 줬거나, flex 1로 했음에도 잘려보일때가 있는데, 이는 ScrollView 내부에 컨테이너에 접근 할 수없어서 생기는 현상이다. 이 때문에 그냥 style이 아니라 contentContainerStyle로 스타일을 잡아준다.
+
+<br />
+
+4. Dimensions
+
+<br />
+
+웹에서도 브라우저의 창의 너비와 높이를 가져올 수 있듯이, 앱에서도 가능하다. Dimensions을 import 한 후에, 불러오면 된다.
+
+<br />
+
+```
+    import { Dimensions } from "react-native;
+
+    cosnt { width, height } = Dimensions.get("window")
+```
