@@ -158,3 +158,9 @@ contentContainerStyle={styles.weather} => 가끔 스크롤하는 영역이 충�
 
     cosnt { width, height } = Dimensions.get("window")
 ```
+
+<br />
+
+5. TouchableOpacity
+
+<br />
