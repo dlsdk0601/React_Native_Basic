@@ -1,18 +1,29 @@
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View, TouchableOpacity, TouchableHighlight, TouchableWithoutFeedback, Pressable } from 'react-native';
+import { useState } from 'react';
+import { StyleSheet, Text, View, TouchableOpacity, TouchableHighlight, TouchableWithoutFeedback, Pressable, TextInput } from 'react-native';
 import { theme } from './color';
 
 export default function App() {
+
+  const [ working, setWorking ] = useState(true);
+  const [ text, setText ] = useState("")
+
+  const travel = () => setWorking(false);
+  const wrok = () => setWorking(true);
+  const onChangeText = (payload) => {
+    setText(payload)
+  };
+
   return (
     <View style={styles.container}>
       <Text></Text>
       <StatusBar style="auto" />
       <View style={styles.header}>
-        <TouchableOpacity>
-          <Text style={styles.btnText}>Wrok</Text>
+        <TouchableOpacity onPress={wrok}>
+          <Text style={{...styles.btnText, color: working ? "white" : theme.grey}}>Wrok</Text>
         </TouchableOpacity>
-        <TouchableOpacity>
-          <Text style={styles.btnText}>Travel</Text>
+        <TouchableOpacity onPress={travel}>
+          <Text style={{...styles.btnText, color: !working ? "white" : theme.grey}}>Travel</Text>
         </TouchableOpacity>
         {/* <TouchableOpacity>
           <Text style={styles.btnText}>Wrok</Text>
@@ -30,6 +41,11 @@ export default function App() {
           {/* <Text style={styles.btnText}>Travel</Text>
         </TouchableWithoutFeedback> */}
       </View>
+      <TextInput 
+        style={styles.input} 
+        placeholder={working ? "Add a To Do" : "Where do you wanna go?"} 
+        onChangeText={onChangeText}
+      />
     </View>
   );
 }
@@ -46,8 +62,15 @@ const styles = StyleSheet.create({
     justifyContent: "space-between"
   },
   btnText: {
-    color: theme.grey,
     fontSize: 38,
     fontWeight: "600"
+  },
+  input: {
+    backgroundColor: "white",
+    paddingVertical: 15,
+    paddingHorizontal: 20,
+    borderRadius: 30,
+    marginTop: 20,
+    fontSize: 18
   }
 });

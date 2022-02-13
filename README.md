@@ -164,3 +164,5 @@ contentContainerStyle={styles.weather} => 가끔 스크롤하는 영역이 충�
 5. TouchableOpacity
 
 <br />
+
+web에서의 button태그라고 생각하면 된다. App에서는 클릭이 돼었다는걸 표시하기 위해 클릭 된 순간 opacity가 잠깐 발동한다. 다양한 props를 통해서 근처를 터치하거나, 터치하는 동안에 이벤트를 줄 수있다.
